@@ -1,0 +1,201 @@
+{
+  "best_model": "LogisticRegression",
+  "trained_at_utc": "2026-11-22T15:50:42.219334+00:00",
+  "classes": [
+    "High Performer",
+    "Steady",
+    "At Risk"
+  ],
+  "dataset_size": 500,
+  "train_size": 400,
+  "test_size": 100,
+  "test_accuracy": 0.78,
+  "test_f1_macro": 0.5398,
+  "leaderboard": [
+    {
+      "model": "LogisticRegression",
+      "cv_f1_macro": 0.7761,
+      "cv_accuracy": 0.8475
+    },
+    {
+      "model": "GradientBoostingClassifier",
+      "cv_f1_macro": 0.5842,
+      "cv_accuracy": 0.77
+    },
+    {
+      "model": "RandomForestClassifier",
+      "cv_f1_macro": 0.5349,
+      "cv_accuracy": 0.785
+    }
+  ],
+  "confusion_matrix": [
+    [
+      34,
+      6,
+      0
+    ],
+    [
+      9,
+      44,
+      1
+    ],
+    [
+      0,
+      6,
+      0
+    ]
+  ],
+  "classification_report": {
+    "At Risk": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 6.0
+    },
+    "High Performer": {
+      "precision": 0.7906976744186046,
+      "recall": 0.85,
+      "f1-score": 0.8192771084337349,
+      "support": 40.0
+    },
+    "Steady": {
+      "precision": 0.7857142857142857,
+      "recall": 0.8148148148148148,
+      "f1-score": 0.8,
+      "support": 54.0
+    },
+    "accuracy": 0.78,
+    "macro avg": {
+      "precision": 0.5254706533776301,
+      "recall": 0.5549382716049382,
+      "f1-score": 0.5397590361445783,
+      "support": 100.0
+    },
+    "weighted avg": {
+      "precision": 0.7405647840531562,
+      "recall": 0.78,
+      "f1-score": 0.7597108433734939,
+      "support": 100.0
+    }
+  },
+  "feature_importances": [
+    {
+      "feature": "study_hours",
+      "importance": 0.193
+    },
+    {
+      "feature": "previous_gpa",
+      "importance": 0.1446
+    },
+    {
+      "feature": "late_submissions",
+      "importance": 0.137
+    },
+    {
+      "feature": "engagement_index",
+      "importance": 0.1022
+    },
+    {
+      "feature": "assessment_momentum",
+      "importance": 0.0965
+    },
+    {
+      "feature": "assignments_completed",
+      "importance": 0.0784
+    },
+    {
+      "feature": "attendance_pct",
+      "importance": 0.0697
+    },
+    {
+      "feature": "risk_pressure_score",
+      "importance": 0.0562
+    },
+    {
+      "feature": "track_Python",
+      "importance": 0.0342
+    },
+    {
+      "feature": "quiz_avg",
+      "importance": 0.0259
+    },
+    {
+      "feature": "track_Data Science",
+      "importance": 0.0251
+    },
+    {
+      "feature": "study_efficiency",
+      "importance": 0.0161
+    },
+    {
+      "feature": "track_Full Stack",
+      "importance": 0.0115
+    },
+    {
+      "feature": "track_AI & ML",
+      "importance": 0.0097
+    }
+  ],
+  "baseline_stats": {
+    "study_hours": {
+      "mean": 3.31,
+      "std": 1.363,
+      "min": 0.5,
+      "max": 7.85
+    },
+    "attendance_pct": {
+      "mean": 81.017,
+      "std": 12.398,
+      "min": 44.6,
+      "max": 100.0
+    },
+    "previous_gpa": {
+      "mean": 7.161,
+      "std": 1.145,
+      "min": 4.0,
+      "max": 10.0
+    },
+    "assignments_completed": {
+      "mean": 5.88,
+      "std": 2.619,
+      "min": 2.0,
+      "max": 10.0
+    },
+    "quiz_avg": {
+      "mean": 74.46,
+      "std": 14.525,
+      "min": 31.1,
+      "max": 100.0
+    },
+    "late_submissions": {
+      "mean": 1.145,
+      "std": 1.089,
+      "min": 0.0,
+      "max": 6.0
+    },
+    "study_efficiency": {
+      "mean": 2.26,
+      "std": 1.299,
+      "min": 0.675,
+      "max": 8.72
+    },
+    "engagement_index": {
+      "mean": 71.019,
+      "std": 13.694,
+      "min": 36.995,
+      "max": 100.0
+    },
+    "assessment_momentum": {
+      "mean": 73.036,
+      "std": 8.975,
+      "min": 47.7,
+      "max": 95.15
+    },
+    "risk_pressure_score": {
+      "mean": 9.337,
+      "std": 7.011,
+      "min": 0.0,
+      "max": 39.01
+    }
+  }
+}
