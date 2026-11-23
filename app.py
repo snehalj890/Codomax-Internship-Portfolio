@@ -1,4 +1,4 @@
-﻿"""
+"""
 Module 06 - Final AI & ML Project: EduPulse AI SaaS Platform.
 Loads the trained model pipeline (model.pkl) and metadata (model_metadata.json)
 for live student evaluation, preset scenario testing, What-If simulation,
@@ -503,7 +503,7 @@ def main():
         [
             "Live Predictor & What-If Simulator",
             "Batch Cohort Triage",
-            "  Model Telemetry & Explainability",
+            " Model Telemetry & Explainability",
             "Session Audit Log",
         ]
     )
@@ -515,7 +515,7 @@ def main():
         with st.container(border=True):
             p1, p2, p3 = st.columns(3)
             with p1:
-                st.button("âš¡ Load Balanced Profile", on_click=apply_preset, args=("Balanced / Default",), width="stretch")
+                st.button(" Load Balanced Profile", on_click=apply_preset, args=("Balanced / Default",), width="stretch")
             with p2:
                 st.button("Load High Performer", on_click=apply_preset, args=("High Performer",), width="stretch")
             with p3:
@@ -539,9 +539,9 @@ def main():
                 late_submissions = st.slider("Late Submissions", min_value=0, max_value=8, step=1, key="late_input")
 
                 st.markdown('<div class="section-title" style="margin-top:1rem;">What-If Adjustment Delta</div>', unsafe_allow_html=True)
-                delta_study = st.slider("Î” Daily Study Hours", min_value=-2.0, max_value=4.0, step=0.25, key="d_study")
-                delta_attendance = st.slider("Î” Attendance (%)", min_value=-20.0, max_value=20.0, step=1.0, key="d_att")
-                delta_quiz = st.slider("Î” Quiz Average (%)", min_value=-20.0, max_value=20.0, step=1.0, key="d_quiz")
+                delta_study = st.slider(" Daily Study Hours", min_value=-2.0, max_value=4.0, step=0.25, key="d_study")
+                delta_attendance = st.slider(" Attendance (%)", min_value=-20.0, max_value=20.0, step=1.0, key="d_att")
+                delta_quiz = st.slider(" Quiz Average (%)", min_value=-20.0, max_value=20.0, step=1.0, key="d_quiz")
 
                 log_btn = st.button("Record Assessment to Audit Log", type="primary", width="stretch")
                 st.caption(f"Logged entries: **{len(st.session_state.audit_log)}** - open **Session Audit Log** tab to view.")
@@ -808,7 +808,7 @@ def main():
                     csv_buf = StringIO()
                     scored.to_csv(csv_buf, index=False)
                     st.download_button(
-                        label="â¬‡ï¸ Download Scored Cohort CSV",
+                        label=" Download Scored Cohort CSV",
                         data=csv_buf.getvalue(),
                         file_name="scored_student_cohort.csv",
                         mime="text/csv",
@@ -889,7 +889,7 @@ def main():
                 col_a, col_b = st.columns([1, 1])
                 with col_a:
                     st.download_button(
-                        label="â¬‡ï¸ Export Audit Log (.csv)",
+                        label=" Export Audit Log (.csv)",
                         data=audit_df.to_csv(index=False),
                         file_name="session_audit_log.csv",
                         mime="text/csv",
