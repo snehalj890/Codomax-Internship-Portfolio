@@ -79,7 +79,7 @@ PRESETS = {
 
 st.set_page_config(
     page_title="EduPulse AI | Student Academic Risk & Performance Platform",
-    page_icon="ðŸŽ“",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -412,7 +412,7 @@ def build_action_brief(
 ) -> str:
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
     lines = [
-        "EDUPULSE AI â€” INDIVIDUAL STUDENT ACADEMIC BRIEF",
+        "EDUPULSE AI - INDIVIDUAL STUDENT ACADEMIC BRIEF",
         f"Generated: {now_str}",
         f"Student: {student_name} ({student_id}) | Track: {row_dict['track']}",
         "-" * 56,
@@ -421,12 +421,12 @@ def build_action_brief(
         "Class Probabilities: " + ", ".join(f"{k}: {v*100:.1f}%" for k, v in prob_map.items()),
         "-" * 56,
         "Key Metrics:",
-        f"  â€¢ Daily Study Hours       : {row_dict['study_hours']} hrs",
-        f"  â€¢ Attendance              : {row_dict['attendance_pct']}%",
-        f"  â€¢ Previous GPA            : {row_dict['previous_gpa']} / 10.0",
-        f"  â€¢ Assignments Completed   : {row_dict['assignments_completed']} / 10",
-        f"  â€¢ Quiz Average            : {row_dict['quiz_avg']}%",
-        f"  â€¢ Late Submissions        : {row_dict['late_submissions']}",
+        f"  | Daily Study Hours       : {row_dict['study_hours']} hrs",
+        f"  | Attendance              : {row_dict['attendance_pct']}%",
+        f"  | Previous GPA            : {row_dict['previous_gpa']} / 10.0",
+        f"  | Assignments Completed   : {row_dict['assignments_completed']} / 10",
+        f"  | Quiz Average            : {row_dict['quiz_avg']}%",
+        f"  | Late Submissions        : {row_dict['late_submissions']}",
         "-" * 56,
         "Top Risk Drivers (vs Cohort Mean):",
     ]
@@ -434,7 +434,7 @@ def build_action_brief(
         for _, r in attr_df.head(3).iterrows():
             direction = "raises risk" if r["Risk Impact (% pts)"] > 0 else "lowers risk"
             lines.append(
-                f"  â€¢ {r['Feature']}: {r['Student Value']} (avg {r['Cohort Avg']}) -> {r['Risk Impact (% pts)']:+.2f} pts ({direction})"
+                f"  | {r['Feature']}: {r['Student Value']} (avg {r['Cohort Avg']}) -> {r['Risk Impact (% pts)']:+.2f} pts ({direction})"
             )
     lines.extend(
         [
@@ -476,7 +476,7 @@ def main():
         """
         <div class="web-topbar">
             <div><strong>EduPulse Portal</strong> &nbsp;/&nbsp; Student Success &amp; Early-Warning Suite</div>
-            <div>Workspace: <strong>Codomax ML Capstone</strong> &nbsp;â€¢&nbsp; Status: <strong>Live</strong></div>
+            <div>Workspace: <strong>Codomax ML Capstone</strong> &nbsp;|&nbsp; Status: <strong>Live</strong></div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -486,8 +486,8 @@ def main():
         f"""
         <div class="saas-navbar">
             <div>
-                <p class="saas-brand-title">EduPulse AI â€” Student Academic Risk & Performance Platform</p>
-                <p class="saas-brand-sub">Module 06 Final ML Capstone â€¢ Predictive Analytics, What-If Simulation & Cohort Triage</p>
+                <p class="saas-brand-title">EduPulse AI - Student Academic Risk & Performance Platform</p>
+                <p class="saas-brand-sub">Module 06 Final ML Capstone | Predictive Analytics, What-If Simulation & Cohort Triage</p>
             </div>
             <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
                 <span class="saas-pill">Model: {best_model}</span>
@@ -501,10 +501,10 @@ def main():
 
     tab_sim, tab_batch, tab_telemetry, tab_audit = st.tabs(
         [
-            "ðŸŽ¯ Live Predictor & What-If Simulator",
-            "ðŸ“Š Batch Cohort Triage",
-            "ðŸ§  Model Telemetry & Explainability",
-            "ðŸ“ Session Audit Log",
+            "Live Predictor & What-If Simulator",
+            "Batch Cohort Triage",
+            "  Model Telemetry & Explainability",
+            "Session Audit Log",
         ]
     )
 
@@ -517,9 +517,9 @@ def main():
             with p1:
                 st.button("âš¡ Load Balanced Profile", on_click=apply_preset, args=("Balanced / Default",), width="stretch")
             with p2:
-                st.button("ðŸŒŸ Load High Performer", on_click=apply_preset, args=("High Performer",), width="stretch")
+                st.button("Load High Performer", on_click=apply_preset, args=("High Performer",), width="stretch")
             with p3:
-                st.button("ðŸš¨ Load At-Risk Scenario", on_click=apply_preset, args=("At Risk Alert",), width="stretch")
+                st.button("Load At-Risk Scenario", on_click=apply_preset, args=("At Risk Alert",), width="stretch")
 
         left_col, right_col = st.columns([1.02, 1.38], gap="large")
 
@@ -543,8 +543,8 @@ def main():
                 delta_attendance = st.slider("Î” Attendance (%)", min_value=-20.0, max_value=20.0, step=1.0, key="d_att")
                 delta_quiz = st.slider("Î” Quiz Average (%)", min_value=-20.0, max_value=20.0, step=1.0, key="d_quiz")
 
-                log_btn = st.button("ðŸ“Œ Record Assessment to Audit Log", type="primary", width="stretch")
-                st.caption(f"Logged entries: **{len(st.session_state.audit_log)}** â€” open **ðŸ“ Session Audit Log** tab to view.")
+                log_btn = st.button("Record Assessment to Audit Log", type="primary", width="stretch")
+                st.caption(f"Logged entries: **{len(st.session_state.audit_log)}** - open **Session Audit Log** tab to view.")
 
         base_row = {
             "track": track,
@@ -723,7 +723,7 @@ def main():
                 student_name, student_id, sim_row, sim_pred, sim_prob_map, readiness_score, attr_df
             )
             st.download_button(
-                label="ðŸ“„ Download Individual Student Action Brief (.txt)",
+                label="Download Individual Student Action Brief (.txt)",
                 data=brief_txt,
                 file_name=f"{student_id}_{student_name.replace(' ', '_')}_brief.txt",
                 mime="text/plain",
@@ -895,7 +895,7 @@ def main():
                         mime="text/csv",
                     )
                 with col_b:
-                    if st.button("ðŸ—‘ï¸ Clear Audit Log"):
+                    if st.button("Clear Audit Log"):
                         st.session_state.audit_log = []
                         if AUDIT_CSV_PATH.exists():
                             AUDIT_CSV_PATH.unlink()
